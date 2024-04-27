@@ -717,7 +717,7 @@ static void scan_eh_tab(scan_results &results, _Unwind_Action actions,
             if (actionEntry == 0)
             {
                 // Found a cleanup
-                results.reason = actions & _UA_SEARCH_PHASE
+                results.reason = (actions & _UA_SEARCH_PHASE)
                                      ? _URC_CONTINUE_UNWIND
                                      : _URC_HANDLER_FOUND;
                 return;

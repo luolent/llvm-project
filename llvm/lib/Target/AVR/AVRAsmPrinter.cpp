@@ -135,7 +135,7 @@ bool AVRAsmPrinter::PrintAsmOperand(const MachineInstr *MI, unsigned OpNum,
 
     if (BytesPerReg == 2) {
       Reg = TRI.getSubReg(Reg,
-                          ByteNumber % BytesPerReg ? AVR::sub_hi : AVR::sub_lo);
+                          (ByteNumber % BytesPerReg) ? AVR::sub_hi : AVR::sub_lo);
     }
 
     O << AVRInstPrinter::getPrettyRegisterName(Reg, MRI);
